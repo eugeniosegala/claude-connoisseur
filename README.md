@@ -16,11 +16,48 @@ A collection of skills, rules, hooks and more for Claude Code, curated with tast
 
 ### Skills
 
-| Skill                                                  | Command               | Description                                                                           |
-|--------------------------------------------------------|-----------------------|---------------------------------------------------------------------------------------|
-| [codex-review](skills/codex-review/SKILL.md)           | `/codex-review`       | Send plans, approaches, or code to OpenAI Codex CLI for an independent second opinion |
-| [functional](skills/functional/SKILL.md)               | `/functional <files>` | Convert specified files to functional programming style                               |
-| [object](skills/object/SKILL.md)                       | `/object <files>`     | Convert specified files to object-oriented programming style                          |
+| Skill                                                  | Command                   | User-triggered | Can Claude invoke | Description                                                                           |
+|--------------------------------------------------------|---------------------------|----------------|-------------------|---------------------------------------------------------------------------------------|
+| [codex-review](skills/codex-review/SKILL.md)           | `/ccn:codex-review`       | Yes            | No                | Send plans, approaches, or code to OpenAI Codex CLI for an independent second opinion |
+| [functional](skills/functional/SKILL.md)               | `/ccn:functional <files>` | Yes            | No                | Convert specified files to functional programming style                               |
+| [object](skills/object/SKILL.md)                       | `/ccn:object <files>`     | Yes            | No                | Convert specified files to object-oriented programming style                          |
+| [db-review](skills/db-review/SKILL.md)                 | `/ccn:db-review <files>`  | Yes            | Yes               | Review database schemas and suggest improvements for indexing, types, constraints, and more |
+
+#### Examples
+
+**`/ccn:codex-review`** — review plans, code, or both:
+```
+/ccn:codex-review review my current plan
+/ccn:codex-review review the code I just wrote
+/ccn:codex-review review the approach and the implementation together
+```
+
+**`/ccn:functional`** — convert files to functional style:
+```
+/ccn:functional @service.ts @handler.ts
+/ccn:functional utils.py, helpers.py
+/ccn:functional @app.go and also convert the files it imports
+/ccn:functional @processor.rb focus only on the data transformation methods
+/ccn:functional @api.ts keep the existing class structure but make methods pure
+```
+
+**`/ccn:object`** — convert files to object-oriented style:
+```
+/ccn:object @service.ts @handler.ts
+/ccn:object utils.py, helpers.py
+/ccn:object @app.go and also convert the files it imports
+/ccn:object @processor.rb focus only on the data transformation methods
+/ccn:object @helpers.ts keep the existing function signatures as public methods
+```
+
+**`/ccn:db-review`** — review database schemas:
+```
+/ccn:db-review @schema.sql
+/ccn:db-review schema.prisma, migrations/001.sql
+/ccn:db-review @models.py this is a write-heavy OLTP workload on PostgreSQL
+/ccn:db-review @schema.sql focus on indexing and performance only
+/ccn:db-review @schema.rb also check the migration files in db/migrations
+```
 
 ### Hooks
 
@@ -34,12 +71,12 @@ Add the marketplace and install the plugin from within Claude Code:
 
 ```
 /plugin marketplace add eugeniosegala/claude-connoisseur
-/plugin install claude-connoisseur@eugeniosegala-claude-connoisseur
+/plugin install ccn@eugeniosegala-claude-connoisseur
 ```
 
 ### Notes
 
-- Skills will be namespaced as `/claude-connoisseur:codex-review`, `/claude-connoisseur:functional`, etc.
+- Skills will be namespaced as `/ccn:codex-review`, `/ccn:functional`, etc.
 - The auto-format hook runs automatically after every `Write` or `Edit` — formatters are detected at runtime, so if a formatter isn't installed it is silently skipped.
 - Rules are not distributed via the plugin system. To use the coding-style rule, copy it manually into your project:
   ```sh

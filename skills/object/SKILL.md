@@ -1,7 +1,8 @@
 ---
 name: object
 description: Convert specified files to object-oriented programming style. Accepts file names and optional natural language instructions.
-user_invocable: true
+user-invocable: true
+disable-model-invocation: true
 ---
 
 # Object-Oriented Programming Conversion

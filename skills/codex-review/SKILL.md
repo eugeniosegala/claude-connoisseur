@@ -1,7 +1,8 @@
 ---
 name: codex-review
 description: Send plans, approaches, or code to OpenAI Codex CLI for independent review.
-user_invocable: true
+user-invocable: true
+disable-model-invocation: true
 ---
 
 # Codex Review Skill

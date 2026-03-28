@@ -1,7 +1,8 @@
 ---
 name: functional
 description: Convert specified files to functional programming style. Accepts file names and optional natural language instructions.
-user_invocable: true
+user-invocable: true
+disable-model-invocation: true
 ---
 
 # Functional Programming Conversion
