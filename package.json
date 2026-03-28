@@ -1,0 +1,31 @@
+{
+  "name": "claude-connoisseur",
+  "version": "1.0.0",
+  "description": "A collection of skills, rules, hooks and more for Claude Code, curated with taste for good coding!",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "skills",
+    "rules",
+    "hooks",
+    "ai",
+    "coding-standards",
+    "developer-tools"
+  ],
+  "homepage": "https://github.com/eugeniosegala/claude-connoisseur#readme",
+  "bugs": {
+    "url": "https://github.com/eugeniosegala/claude-connoisseur/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eugeniosegala/claude-connoisseur.git"
+  },
+  "license": "MIT",
+  "author": "Eugenio Segala",
+  "dependencies": {
+    "prettier": "^3.8.1"
+  },
+  "volta": {
+    "node": "24.13.1"
+  }
+}

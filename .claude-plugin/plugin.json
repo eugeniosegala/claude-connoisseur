@@ -1,0 +1,19 @@
+{
+  "name": "claude-connoisseur",
+  "description": "A collection of skills, rules, hooks and more for Claude Code, curated with taste for good coding!",
+  "version": "1.0.0",
+  "author": {
+    "name": "Eugenio Segala"
+  },
+  "homepage": "https://github.com/eugeniosegala/claude-connoisseur",
+  "repository": "https://github.com/eugeniosegala/claude-connoisseur",
+  "license": "MIT",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "skills",
+    "rules",
+    "hooks",
+    "coding-standards"
+  ]
+}

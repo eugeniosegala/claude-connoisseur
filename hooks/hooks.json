@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "hooks/auto-format.sh",
+            "statusMessage": "Formatting..."
+          }
+        ]
+      }
+    ]
+  }
+}
