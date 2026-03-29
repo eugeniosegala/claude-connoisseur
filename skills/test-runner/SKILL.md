@@ -3,6 +3,7 @@ name: test-runner
 description: Run tests, fix failures, and re-run until the suite passes.
 argument-hint: "[files] [instructions]"
 user-invocable: true
+disable-model-invocation: true
 ---
 
 # Test Runner
