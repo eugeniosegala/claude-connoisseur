@@ -57,7 +57,15 @@ These skills are read-only — they analyse code and report findings without mak
 | [perf-review](skills/perf-review/SKILL.md)             | `/ccn:perf-review <files>`  | Yes               | Review code for performance issues — algorithmic complexity, batching, caching, memory, concurrency, and more |
 | [cost-review](skills/cost-review/SKILL.md)             | `/ccn:cost-review [files]`  | No                | Estimate monthly cloud costs from infrastructure and app config, with optimisation suggestions |
 
-#### Examples
+### Hooks
+
+| Hook                                       | Trigger                  | Description                                                                                                                                                                        |
+|--------------------------------------------|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [auto-format](hooks/auto-format.sh)        | After `Write` or `Edit`  | Auto-formats files using the appropriate formatter for the language — supports Python (ruff), JS/TS/CSS/HTML/JSON/YAML/Markdown (prettier), Terraform, Go, Rust, and Shell (shfmt) |
+| [type-check](hooks/type-check.sh)          | After `Write` or `Edit`  | Type-checks edited files — supports TypeScript (tsc), Python (mypy), Go (go vet), Rust (cargo check), and Java (javac). Silently skipped if no type checker is installed          |
+| [commit-guard](hooks/commit-guard.sh)      | Before `Bash`            | Intercepts git commit commands and blocks if staged files contain secrets (.env, API keys, tokens, private keys) or sensitive file patterns                                        |
+
+### Skill examples
 
 **`/ccn:functional`** — convert files to functional style:
 ```
@@ -128,12 +136,6 @@ These skills are read-only — they analyse code and report findings without mak
 /ccn:cost-review @serverless.yml we expect 1M invocations per month
 /ccn:cost-review @docker-compose.yml this will run on ECS Fargate
 ```
-
-### Hooks
-
-| Hook                                       | Trigger                 | Description                                                                                                                                                                        |
-|--------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [auto-format](hooks/auto-format.sh)        | After `Write` or `Edit` | Auto-formats files using the appropriate formatter for the language — supports Python (ruff), JS/TS/CSS/HTML/JSON/YAML/Markdown (prettier), Terraform, Go, Rust, and Shell (shfmt) |
 
 ## License
 

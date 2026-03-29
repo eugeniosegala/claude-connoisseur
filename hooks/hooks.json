@@ -8,6 +8,23 @@
             "type": "command",
             "command": "hooks/auto-format.sh",
             "statusMessage": "Formatting..."
+          },
+          {
+            "type": "command",
+            "command": "hooks/type-check.sh",
+            "statusMessage": "Type-checking..."
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "hooks/commit-guard.sh",
+            "statusMessage": "Checking for secrets..."
           }
         ]
       }
