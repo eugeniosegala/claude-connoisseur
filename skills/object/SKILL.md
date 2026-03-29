@@ -1,7 +1,7 @@
 ---
 name: object
 description: Convert files to object-oriented programming style with optional NLP instructions.
-argument-hint: <files> [instructions]
+argument-hint: "<files> [instructions]"
 user-invocable: true
 disable-model-invocation: true
 ---

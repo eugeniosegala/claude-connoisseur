@@ -1,8 +1,10 @@
 ---
 name: db-review
 description: Review database schemas and suggest improvements for indexing, types, and constraints.
-argument-hint: <files> [instructions]
+argument-hint: "<files> [instructions]"
 user-invocable: true
+context: fork
+agent: Explore
 paths: "*.sql, *.prisma, *.schema, **/migrations/**, **/models/**"
 ---
 

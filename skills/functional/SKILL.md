@@ -1,7 +1,7 @@
 ---
 name: functional
 description: Convert files to functional programming style with optional NLP instructions.
-argument-hint: <files> [instructions]
+argument-hint: "<files> [instructions]"
 user-invocable: true
 disable-model-invocation: true
 ---

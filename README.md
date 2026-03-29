@@ -23,6 +23,7 @@ A collection of skills, rules, hooks and more for Claude Code, curated with tast
 | [object](skills/object/SKILL.md)                       | `/ccn:object <files>`     | Yes            | No                | Convert specified files to object-oriented programming style                          |
 | [db-review](skills/db-review/SKILL.md)                 | `/ccn:db-review <files>`  | Yes            | Yes               | Review database schemas and suggest improvements for indexing, types, constraints, and more |
 | [perf-review](skills/perf-review/SKILL.md)             | `/ccn:perf-review <files>`| Yes            | Yes               | Review code for performance issues — algorithmic complexity, batching, caching, memory, concurrency, and more |
+| [cost-review](skills/cost-review/SKILL.md)             | `/ccn:cost-review [files]`| Yes            | No                | Estimate monthly cloud costs from infrastructure and app config, with optimisation suggestions |
 
 #### Examples
 
@@ -67,6 +68,15 @@ A collection of skills, rules, hooks and more for Claude Code, curated with tast
 /ccn:perf-review @app.go and also review the files it imports
 /ccn:perf-review @api.ts focus only on database query performance
 /ccn:perf-review @processor.rb we're seeing high memory usage in production
+```
+
+**`/ccn:cost-review`** — estimate monthly cloud costs:
+```
+/ccn:cost-review
+/ccn:cost-review @main.tf @variables.tf
+/ccn:cost-review assume 10k daily active users on AWS eu-west-1
+/ccn:cost-review @serverless.yml we expect 1M invocations per month
+/ccn:cost-review @docker-compose.yml this will run on ECS Fargate
 ```
 
 ### Hooks

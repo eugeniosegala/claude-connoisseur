@@ -1,8 +1,10 @@
 ---
 name: perf-review
 description: Review code for performance issues — complexity, batching, caching, memory, and concurrency.
-argument-hint: <files> [instructions]
+argument-hint: "<files> [instructions]"
 user-invocable: true
+context: fork
+agent: Explore
 ---
 
 # Performance Review

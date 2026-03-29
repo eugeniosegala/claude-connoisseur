@@ -1,6 +1,7 @@
 ---
 name: codex-review
 description: Send plans, code, or approaches to OpenAI Codex CLI for independent review.
+argument-hint: "[context]"
 user-invocable: true
 disable-model-invocation: true
 context: fork
@@ -21,6 +22,14 @@ This skill covers **both** code and plans/approaches:
 - **Both together**: A plan alongside the code that implements it
 
 Adapt what you send based on what the user asks Codex to review.
+
+### Examples
+
+- `/codex-review review my current plan` — review the plan from the current conversation
+- `/codex-review review the code I just wrote` — review recent code changes
+- `/codex-review review the approach and the implementation together` — review both plan and code
+- `/codex-review @auth.ts review this file for security issues` — review a specific file with focus
+- `/codex-review review the last commit` — review the most recent commit diff
 
 ## How to use
 
