@@ -15,6 +15,16 @@ Add the marketplace and install the plugin from within Claude Code:
 /plugin install ccn@eugeniosegala-claude-connoisseur
 ```
 
+### Updating
+
+Third-party plugins do not auto-update by default. To get the latest version:
+
+```
+/plugin update ccn@eugeniosegala-claude-connoisseur
+```
+
+To enable auto-updates, open `/plugin` → **Marketplaces** tab → select the marketplace → **Enable auto-update**.
+
 ### Notes
 
 - Skills will be namespaced as `/ccn:codex-review`, `/ccn:functional`, etc.
