@@ -7,13 +7,13 @@ disable-model-invocation: true
 context: fork
 ---
 
-# Codex Review Skill
+# Codex Review
 
 When invoked, send the relevant context — plans, approaches, code, or any combination — to `codex` CLI for an independent review.
 
-Arguments: $ARGUMENTS
+Files and instructions: $ARGUMENTS
 
-## What can be reviewed
+## What to review
 
 This skill covers **both** code and plans/approaches:
 
@@ -23,6 +23,16 @@ This skill covers **both** code and plans/approaches:
 
 Adapt what you send based on what the user asks Codex to review.
 
+## How to interpret arguments
+
+The arguments are free-form and flexible. They may contain:
+
+- Natural language describing what to review: "review my current plan", "review the last commit"
+- File references alongside instructions: `@auth.ts review this file for security issues`
+- Scope instructions: "review the approach and the implementation together"
+
+Parse the arguments to determine what context to gather and send to Codex.
+
 ### Examples
 
 - `/codex-review review my current plan` — review the plan from the current conversation
@@ -31,7 +41,7 @@ Adapt what you send based on what the user asks Codex to review.
 - `/codex-review @auth.ts review this file for security issues` — review a specific file with focus
 - `/codex-review review the last commit` — review the most recent commit diff
 
-## How to use
+## How to proceed
 
 1. **Gather context**: Collect the relevant material to send for review based on what the user asked:
    - **For plan/approach review**: Include the full plan text or approach description

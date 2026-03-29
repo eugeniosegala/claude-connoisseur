@@ -12,9 +12,9 @@ agent: Explore
 
 Analyse the project's infrastructure and application configuration to produce a monthly cost estimate with optimisation suggestions.
 
-Arguments: $ARGUMENTS
+Files and instructions: $ARGUMENTS
 
-## What to analyse
+## What to review
 
 - **Compute**: VMs, containers, serverless functions, App Service plans, ECS/EKS tasks — instance types, vCPUs, memory, expected runtime hours
 - **Database**: RDS, Aurora, DynamoDB, Cloud SQL, Cosmos DB, ElastiCache — instance class, storage, IOPS, read/write capacity, replicas
@@ -45,6 +45,27 @@ Scan the project for infrastructure files, configuration, and application code. 
 - **CI/CD pipelines**: `.github/workflows/`, `.gitlab-ci.yml`, `Jenkinsfile` — build resources, runner types
 
 If no infrastructure files are found, infer from the application code what services would be required to run it (e.g. a Django app implies a web server, database, and likely object storage).
+
+## How to interpret arguments
+
+The arguments are free-form and flexible. They may contain:
+
+- File references of any type and in any format: `@main.tf`, `serverless.yml, docker-compose.yml`, `template.yaml k8s/deployment.yaml`
+- Additional natural language instructions alongside file references, such as:
+  - "assume 10k daily active users"
+  - "we're on AWS eu-west-1"
+  - "this will run on ECS Fargate"
+  - "we expect 1M Lambda invocations per month"
+
+Parse the arguments to identify which files to analyse and what additional assumptions apply. When no files are provided, explore the project to find relevant infrastructure and application files.
+
+### Examples
+
+- `/cost-review` — scan the entire project and estimate costs
+- `/cost-review @main.tf @variables.tf` — estimate from specific Terraform files
+- `/cost-review assume 10k daily active users on AWS eu-west-1` — estimate with usage assumptions
+- `/cost-review @serverless.yml we expect 1M invocations per month` — estimate with traffic context
+- `/cost-review @docker-compose.yml this will run on ECS Fargate` — estimate with deployment target
 
 ## How to proceed
 
