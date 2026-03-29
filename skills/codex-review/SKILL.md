@@ -5,6 +5,7 @@ argument-hint: "[context]"
 user-invocable: true
 disable-model-invocation: true
 context: fork
+allowed-tools: Read, Grep, Glob, Bash
 ---
 
 # Codex Review

@@ -5,6 +5,7 @@ argument-hint: "<files> [instructions]"
 user-invocable: true
 context: fork
 agent: Explore
+allowed-tools: Read, Grep, Glob
 ---
 
 # Performance Review

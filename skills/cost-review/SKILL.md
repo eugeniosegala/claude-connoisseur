@@ -6,6 +6,7 @@ user-invocable: true
 disable-model-invocation: true
 context: fork
 agent: Explore
+allowed-tools: Read, Grep, Glob
 ---
 
 # Cost Review
