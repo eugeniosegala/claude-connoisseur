@@ -27,8 +27,10 @@ To enable auto-updates, open `/plugin` → **Marketplaces** tab → select the m
 
 ### Notes
 
-- Skills are shown as `/codex-review`, `/functional`, etc. in the command palette. The full namespaced form (`/claude-connoisseur:codex-review`) also works if you need to disambiguate from other plugins.
-- The auto-format hook runs automatically after every `Write` or `Edit` — formatters are detected at runtime, so if a formatter isn't installed it is silently skipped.
+- Skills are shown as `/codex-review`, `/functional`, etc. in the command palette. The full namespaced form (
+  `/claude-connoisseur:codex-review`) also works if you need to disambiguate from other plugins.
+- The auto-format hook runs automatically after every `Write` or `Edit` — formatters are detected at runtime, so if a
+  formatter isn't installed it is silently skipped.
 - Rules are not distributed via the plugin system. To use the coding-style rule, copy it manually into your project:
   ```sh
   mkdir -p .claude/rules
@@ -39,9 +41,9 @@ To enable auto-updates, open `/plugin` → **Marketplaces** tab → select the m
 
 ### Rules
 
-| Rule                                        | Description                                                                                                             |
-|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| [coding-style](rules/coding-style.md)       | Enforces consistent code style, modern syntax, meaningful comments, modularity, and test discipline across any language |
+| Rule                                  | Description                                                                                                             |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| [coding-style](rules/coding-style.md) | Enforces consistent code style, modern syntax, meaningful comments, modularity, and test discipline across any language |
 
 ### Skills
 
@@ -49,35 +51,36 @@ To enable auto-updates, open `/plugin` → **Marketplaces** tab → select the m
 
 These skills modify code when invoked. User-triggered only — Claude will not run them automatically.
 
-| Skill                                                  | Command                     | Description                                                                           |
-|--------------------------------------------------------|-----------------------------|---------------------------------------------------------------------------------------|
-| [functional](skills/functional/SKILL.md)               | `/functional <files>`   | Convert specified files to functional programming style                               |
-| [object-oriented](skills/object-oriented/SKILL.md)     | `/object-oriented <files>` | Convert specified files to object-oriented programming style                          |
-| [test-refactor](skills/test-refactor/SKILL.md)         | `/test-refactor <files>`| Refactor tests for consistency, mocking patterns, isolation, and quality              |
-| [test-runner](skills/test-runner/SKILL.md)             | `/test-runner [files]`  | Run tests, fix failures, and re-run until the suite passes                            |
+| Skill                                              | Command                    | Description                                                              |
+|----------------------------------------------------|----------------------------|--------------------------------------------------------------------------|
+| [functional](skills/functional/SKILL.md)           | `/functional <files>`      | Convert specified files to functional programming style                  |
+| [object-oriented](skills/object-oriented/SKILL.md) | `/object-oriented <files>` | Convert specified files to object-oriented programming style             |
+| [test-refactor](skills/test-refactor/SKILL.md)     | `/test-refactor <files>`   | Refactor tests for consistency, mocking patterns, isolation, and quality |
+| [test-runner](skills/test-runner/SKILL.md)         | `/test-runner [files]`     | Run tests, fix failures, and re-run until the suite passes               |
 
 #### Review skills
 
 These skills are read-only — they analyse code and report findings without making changes.
 
-| Skill                                                  | Command                     | Can Claude invoke | Description                                                                           |
-|--------------------------------------------------------|-----------------------------|-------------------|---------------------------------------------------------------------------------------|
-| [codex-review](skills/codex-review/SKILL.md)           | `/codex-review`         | No                | Send plans, approaches, or code to OpenAI Codex CLI for an independent second opinion |
-| [db-review](skills/db-review/SKILL.md)                 | `/db-review <files>`    | Yes               | Review database schemas and suggest improvements for indexing, types, constraints, and more |
-| [perf-review](skills/perf-review/SKILL.md)             | `/perf-review <files>`  | Yes               | Review code for performance issues — algorithmic complexity, batching, caching, memory, concurrency, and more |
-| [cost-review](skills/cost-review/SKILL.md)             | `/cost-review [files]`  | No                | Estimate monthly cloud costs from infrastructure and app config, with optimisation suggestions |
+| Skill                                        | Command                | Can Claude invoke | Description                                                                                                   |
+|----------------------------------------------|------------------------|-------------------|---------------------------------------------------------------------------------------------------------------|
+| [codex-review](skills/codex-review/SKILL.md) | `/codex-review`        | No                | Send plans, approaches, or code to OpenAI Codex CLI for an independent second opinion                         |
+| [db-review](skills/db-review/SKILL.md)       | `/db-review <files>`   | Yes               | Review database schemas and suggest improvements for indexing, types, constraints, and more                   |
+| [perf-review](skills/perf-review/SKILL.md)   | `/perf-review <files>` | Yes               | Review code for performance issues — algorithmic complexity, batching, caching, memory, concurrency, and more |
+| [cost-review](skills/cost-review/SKILL.md)   | `/cost-review [files]` | No                | Estimate monthly cloud costs from infrastructure and app config, with optimisation suggestions                |
 
 ### Hooks
 
-| Hook                                       | Trigger                  | Description                                                                                                                                                                        |
-|--------------------------------------------|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [auto-format](hooks/auto-format.sh)        | After `Write` or `Edit`  | Auto-formats files using the appropriate formatter for the language — supports Python (ruff), JS/TS/CSS/HTML/JSON/YAML/Markdown (prettier), Terraform, Go, Rust, and Shell (shfmt) |
-| [type-check](hooks/type-check.sh)          | After `Write` or `Edit`  | Type-checks edited files — supports TypeScript (tsc), Python (mypy), Go (go vet), Rust (cargo check), and Java (javac). Silently skipped if no type checker is installed          |
-| [commit-guard](hooks/commit-guard.sh)      | Before `Bash`            | Intercepts git commit commands and blocks if staged files contain secrets (.env, API keys, tokens, private keys) or sensitive file patterns                                        |
+| Hook                                  | Trigger                 | Description                                                                                                                                                                        |
+|---------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [auto-format](hooks/auto-format.sh)   | After `Write` or `Edit` | Auto-formats files using the appropriate formatter for the language — supports Python (ruff), JS/TS/CSS/HTML/JSON/YAML/Markdown (prettier), Terraform, Go, Rust, and Shell (shfmt) |
+| [type-check](hooks/type-check.sh)     | After `Write` or `Edit` | Type-checks edited files — supports TypeScript (tsc), Python (mypy), Go (go vet), Rust (cargo check), and Java (javac). Silently skipped if no type checker is installed           |
+| [commit-guard](hooks/commit-guard.sh) | Before `Bash`           | Intercepts git commit commands and blocks if staged files contain secrets (.env, API keys, tokens, private keys) or sensitive file patterns                                        |
 
 ### Skill examples
 
 **`/functional`** — convert files to functional style:
+
 ```
 /functional @service.ts @handler.ts
 /functional utils.py, helpers.py
@@ -87,6 +90,7 @@ These skills are read-only — they analyse code and report findings without mak
 ```
 
 **`/object-oriented`** — convert files to object-oriented style:
+
 ```
 /object-oriented@service.ts @handler.ts
 /object-orientedutils.py, helpers.py
@@ -96,6 +100,7 @@ These skills are read-only — they analyse code and report findings without mak
 ```
 
 **`/test-refactor`** — refactor tests for consistency and quality:
+
 ```
 /test-refactor @service.test.ts
 /test-refactor tests/unit/
@@ -105,6 +110,7 @@ These skills are read-only — they analyse code and report findings without mak
 ```
 
 **`/test-runner`** — run tests and fix failures:
+
 ```
 /test-runner
 /test-runner @service.test.ts
@@ -114,6 +120,7 @@ These skills are read-only — they analyse code and report findings without mak
 ```
 
 **`/codex-review`** — review plans, code, or both:
+
 ```
 /codex-review review my current plan
 /codex-review review the code I just wrote
@@ -121,6 +128,7 @@ These skills are read-only — they analyse code and report findings without mak
 ```
 
 **`/db-review`** — review database schemas:
+
 ```
 /db-review @schema.sql
 /db-review schema.prisma, migrations/001.sql
@@ -130,6 +138,7 @@ These skills are read-only — they analyse code and report findings without mak
 ```
 
 **`/perf-review`** — review code for performance issues:
+
 ```
 /perf-review @service.ts @handler.ts
 /perf-review utils.py, helpers.py
@@ -139,6 +148,7 @@ These skills are read-only — they analyse code and report findings without mak
 ```
 
 **`/cost-review`** — estimate monthly cloud costs:
+
 ```
 /cost-review
 /cost-review @main.tf @variables.tf
