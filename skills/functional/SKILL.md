@@ -1,6 +1,7 @@
 ---
 name: functional
-description: Convert specified files to functional programming style. Accepts file names and optional natural language instructions.
+description: Convert files to functional programming style with optional NLP instructions.
+argument-hint: <files> [instructions]
 user-invocable: true
 disable-model-invocation: true
 ---
@@ -8,6 +9,8 @@ disable-model-invocation: true
 # Functional Programming Conversion
 
 Convert the specified files to a functional programming style, appropriate to the language of each file.
+
+Files and instructions: $ARGUMENTS
 
 ## Core principles to apply
 

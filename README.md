@@ -22,6 +22,7 @@ A collection of skills, rules, hooks and more for Claude Code, curated with tast
 | [functional](skills/functional/SKILL.md)               | `/ccn:functional <files>` | Yes            | No                | Convert specified files to functional programming style                               |
 | [object](skills/object/SKILL.md)                       | `/ccn:object <files>`     | Yes            | No                | Convert specified files to object-oriented programming style                          |
 | [db-review](skills/db-review/SKILL.md)                 | `/ccn:db-review <files>`  | Yes            | Yes               | Review database schemas and suggest improvements for indexing, types, constraints, and more |
+| [perf-review](skills/perf-review/SKILL.md)             | `/ccn:perf-review <files>`| Yes            | Yes               | Review code for performance issues — algorithmic complexity, batching, caching, memory, concurrency, and more |
 
 #### Examples
 
@@ -57,6 +58,15 @@ A collection of skills, rules, hooks and more for Claude Code, curated with tast
 /ccn:db-review @models.py this is a write-heavy OLTP workload on PostgreSQL
 /ccn:db-review @schema.sql focus on indexing and performance only
 /ccn:db-review @schema.rb also check the migration files in db/migrations
+```
+
+**`/ccn:perf-review`** — review code for performance issues:
+```
+/ccn:perf-review @service.ts @handler.ts
+/ccn:perf-review utils.py, helpers.py
+/ccn:perf-review @app.go and also review the files it imports
+/ccn:perf-review @api.ts focus only on database query performance
+/ccn:perf-review @processor.rb we're seeing high memory usage in production
 ```
 
 ### Hooks

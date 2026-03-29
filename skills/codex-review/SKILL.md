@@ -1,13 +1,16 @@
 ---
 name: codex-review
-description: Send plans, approaches, or code to OpenAI Codex CLI for independent review.
+description: Send plans, code, or approaches to OpenAI Codex CLI for independent review.
 user-invocable: true
 disable-model-invocation: true
+context: fork
 ---
 
 # Codex Review Skill
 
 When invoked, send the relevant context — plans, approaches, code, or any combination — to `codex` CLI for an independent review.
+
+Arguments: $ARGUMENTS
 
 ## What can be reviewed
 
