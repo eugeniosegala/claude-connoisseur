@@ -65,8 +65,8 @@ These skills are read-only — they analyse code and report findings without mak
 | Skill                                        | Command                | Can Claude invoke | Description                                                                                                   |
 |----------------------------------------------|------------------------|-------------------|---------------------------------------------------------------------------------------------------------------|
 | [codex-review](skills/codex-review/SKILL.md) | `/codex-review`        | No                | Send plans, approaches, or code to OpenAI Codex CLI for an independent second opinion                         |
-| [db-review](skills/db-review/SKILL.md)       | `/db-review <files>`   | Yes               | Review database schemas and suggest improvements for indexing, types, constraints, and more                   |
-| [perf-review](skills/perf-review/SKILL.md)   | `/perf-review <files>` | Yes               | Review code for performance issues — algorithmic complexity, batching, caching, memory, concurrency, and more |
+| [db-review](skills/db-review/SKILL.md)       | `/db-review <files>`   | No                | Review database schemas and suggest improvements for indexing, types, constraints, and more                   |
+| [perf-review](skills/perf-review/SKILL.md)   | `/perf-review <files>` | No                | Review code for performance issues — algorithmic complexity, batching, caching, memory, concurrency, and more |
 | [cost-review](skills/cost-review/SKILL.md)   | `/cost-review [files]` | No                | Estimate monthly cloud costs from infrastructure and app config, with optimisation suggestions                |
 
 ### Hooks
