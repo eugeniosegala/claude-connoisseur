@@ -55,11 +55,10 @@ Parse the arguments to determine what context to gather and send to Codex.
    - The code, plan, approach, or combination thereof
    - A request to review, identify potential issues, suggest improvements, and flag anything missing
 
-3. **Run codex**: Use `codex exec` in non-interactive mode. For long prompts, pipe via stdin:
+3. **Run codex**: Write the full prompt to a temporary file, then pipe it to the helper script:
 
    ```bash
-   cat <<'PROMPT' | codex exec -
-   Review the following <code/plan/approach> for a software engineering task and provide feedback.
+   echo "Review the following <code/plan/approach> for a software engineering task and provide feedback.
 
    ## Project Context
    <project context>
@@ -71,14 +70,13 @@ Parse the arguments to determine what context to gather and send to Codex.
    1. Overall assessment
    2. Potential issues or risks
    3. Suggested improvements
-   4. Anything missing or overlooked
-   PROMPT
+   4. Anything missing or overlooked" | skills/codex-review/run-codex.sh
    ```
 
    Important:
-   - Always use `codex exec` (non-interactive mode)
-   - Prefer piping via stdin with heredoc for longer prompts
-   - Set a reasonable timeout (use Bash timeout of 120000ms)
+   - Always use `echo "..." | skills/codex-review/run-codex.sh` — never use heredocs (indentation causes hangs)
+   - The script checks that `codex` is installed and exits with a clear error if not
+   - Set a reasonable timeout (use Bash timeout of 300000ms)
 
 4. **Report back**: Present the Codex feedback to the user clearly:
    - Codex's overall assessment

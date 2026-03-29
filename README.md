@@ -92,11 +92,11 @@ These skills are read-only — they analyse code and report findings without mak
 **`/object-oriented`** — convert files to object-oriented style:
 
 ```
-/object-oriented@service.ts @handler.ts
-/object-orientedutils.py, helpers.py
-/object-oriented@app.go and also convert the files it imports
-/object-oriented@processor.rb focus only on the data transformation methods
-/object-oriented@helpers.ts keep the existing function signatures as public methods
+/object-oriented @service.ts @handler.ts
+/object-oriented utils.py, helpers.py
+/object-oriented @app.go and also convert the files it imports
+/object-oriented @processor.rb focus only on the data transformation methods
+/object-oriented @helpers.ts keep the existing function signatures as public methods
 ```
 
 **`/test-refactor`** — refactor tests for consistency and quality:
