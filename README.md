@@ -6,6 +6,25 @@
 
 A collection of skills, rules, hooks and more for Claude Code, curated with taste for good coding!
 
+## Installation
+
+Add the marketplace and install the plugin from within Claude Code:
+
+```
+/plugin marketplace add eugeniosegala/claude-connoisseur
+/plugin install ccn@eugeniosegala-claude-connoisseur
+```
+
+### Notes
+
+- Skills will be namespaced as `/ccn:codex-review`, `/ccn:functional`, etc.
+- The auto-format hook runs automatically after every `Write` or `Edit` — formatters are detected at runtime, so if a formatter isn't installed it is silently skipped.
+- Rules are not distributed via the plugin system. To use the coding-style rule, copy it manually into your project:
+  ```sh
+  mkdir -p .claude/rules
+  curl -o .claude/rules/coding-style.md https://raw.githubusercontent.com/eugeniosegala/claude-connoisseur/main/rules/coding-style.md
+  ```
+
 ## What's included
 
 ### Rules
@@ -84,25 +103,6 @@ A collection of skills, rules, hooks and more for Claude Code, curated with tast
 | Hook                                       | Trigger                 | Description                                                                                                                                                                        |
 |--------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [auto-format](hooks/auto-format.sh)        | After `Write` or `Edit` | Auto-formats files using the appropriate formatter for the language — supports Python (ruff), JS/TS/CSS/HTML/JSON/YAML/Markdown (prettier), Terraform, Go, Rust, and Shell (shfmt) |
-
-## Installation
-
-Add the marketplace and install the plugin from within Claude Code:
-
-```
-/plugin marketplace add eugeniosegala/claude-connoisseur
-/plugin install ccn@eugeniosegala-claude-connoisseur
-```
-
-### Notes
-
-- Skills will be namespaced as `/ccn:codex-review`, `/ccn:functional`, etc.
-- The auto-format hook runs automatically after every `Write` or `Edit` — formatters are detected at runtime, so if a formatter isn't installed it is silently skipped.
-- Rules are not distributed via the plugin system. To use the coding-style rule, copy it manually into your project:
-  ```sh
-  mkdir -p .claude/rules
-  curl -o .claude/rules/coding-style.md https://raw.githubusercontent.com/eugeniosegala/claude-connoisseur/main/rules/coding-style.md
-  ```
 
 ## License
 
