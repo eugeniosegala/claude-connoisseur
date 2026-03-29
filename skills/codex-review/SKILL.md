@@ -70,7 +70,13 @@ Parse the arguments to determine what context to gather and send to Codex.
    1. Overall assessment
    2. Potential issues or risks
    3. Suggested improvements
-   4. Anything missing or overlooked" | skills/codex-review/run-codex.sh
+   4. Anything missing or overlooked
+
+   ## Output rules
+   - Be concise
+   - Do not echo back the entire code or plan you were given
+   - Short code snippets are fine to illustrate a point, but never include entire files
+   - If you explore the codebase, summarise what you found — do not paste what you read" | skills/codex-review/run-codex.sh
    ```
 
    Important:
