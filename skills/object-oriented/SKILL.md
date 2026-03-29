@@ -1,5 +1,5 @@
 ---
-name: object
+name: object-oriented
 description: Convert files to object-oriented programming style with optional NLP instructions.
 argument-hint: "<files> [instructions]"
 user-invocable: true
@@ -35,10 +35,10 @@ Parse the arguments to identify which files to convert and what additional instr
 
 ### Examples
 
-- `/object @service.ts @handler.ts` — convert these two files
-- `/object utils.py, helpers.py` — comma-separated, no `@` prefix
-- `/object @app.go and also convert the files it imports` — convert with extended scope
-- `/object @processor.rb focus only on the data transformation methods` — convert with targeted instructions
+- `/object-oriented@service.ts @handler.ts` — convert these two files
+- `/object-orientedutils.py, helpers.py` — comma-separated, no `@` prefix
+- `/object-oriented@app.go and also convert the files it imports` — convert with extended scope
+- `/object-oriented@processor.rb focus only on the data transformation methods` — convert with targeted instructions
 
 ## How to proceed
 

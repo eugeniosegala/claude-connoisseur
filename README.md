@@ -12,7 +12,7 @@ Add the marketplace and install the plugin from within Claude Code:
 
 ```
 /plugin marketplace add eugeniosegala/claude-connoisseur
-/plugin install ccn@eugeniosegala-claude-connoisseur
+/plugin install claude-connoisseur@eugeniosegala-claude-connoisseur
 ```
 
 ### Updating
@@ -20,14 +20,14 @@ Add the marketplace and install the plugin from within Claude Code:
 Third-party plugins do not auto-update by default. To get the latest version:
 
 ```
-/plugin update ccn@eugeniosegala-claude-connoisseur
+/plugin update claude-connoisseur@eugeniosegala-claude-connoisseur
 ```
 
 To enable auto-updates, open `/plugin` → **Marketplaces** tab → select the marketplace → **Enable auto-update**.
 
 ### Notes
 
-- Skills will be namespaced as `/ccn:codex-review`, `/ccn:functional`, etc.
+- Skills are shown as `/codex-review`, `/functional`, etc. in the command palette. The full namespaced form (`/claude-connoisseur:codex-review`) also works if you need to disambiguate from other plugins.
 - The auto-format hook runs automatically after every `Write` or `Edit` — formatters are detected at runtime, so if a formatter isn't installed it is silently skipped.
 - Rules are not distributed via the plugin system. To use the coding-style rule, copy it manually into your project:
   ```sh
@@ -51,10 +51,10 @@ These skills modify code when invoked. User-triggered only — Claude will not r
 
 | Skill                                                  | Command                     | Description                                                                           |
 |--------------------------------------------------------|-----------------------------|---------------------------------------------------------------------------------------|
-| [functional](skills/functional/SKILL.md)               | `/ccn:functional <files>`   | Convert specified files to functional programming style                               |
-| [object](skills/object/SKILL.md)                       | `/ccn:object <files>`       | Convert specified files to object-oriented programming style                          |
-| [test-refactor](skills/test-refactor/SKILL.md)         | `/ccn:test-refactor <files>`| Refactor tests for consistency, mocking patterns, isolation, and quality              |
-| [test-runner](skills/test-runner/SKILL.md)             | `/ccn:test-runner [files]`  | Run tests, fix failures, and re-run until the suite passes                            |
+| [functional](skills/functional/SKILL.md)               | `/functional <files>`   | Convert specified files to functional programming style                               |
+| [object-oriented](skills/object-oriented/SKILL.md)     | `/object-oriented <files>` | Convert specified files to object-oriented programming style                          |
+| [test-refactor](skills/test-refactor/SKILL.md)         | `/test-refactor <files>`| Refactor tests for consistency, mocking patterns, isolation, and quality              |
+| [test-runner](skills/test-runner/SKILL.md)             | `/test-runner [files]`  | Run tests, fix failures, and re-run until the suite passes                            |
 
 #### Review skills
 
@@ -62,10 +62,10 @@ These skills are read-only — they analyse code and report findings without mak
 
 | Skill                                                  | Command                     | Can Claude invoke | Description                                                                           |
 |--------------------------------------------------------|-----------------------------|-------------------|---------------------------------------------------------------------------------------|
-| [codex-review](skills/codex-review/SKILL.md)           | `/ccn:codex-review`         | No                | Send plans, approaches, or code to OpenAI Codex CLI for an independent second opinion |
-| [db-review](skills/db-review/SKILL.md)                 | `/ccn:db-review <files>`    | Yes               | Review database schemas and suggest improvements for indexing, types, constraints, and more |
-| [perf-review](skills/perf-review/SKILL.md)             | `/ccn:perf-review <files>`  | Yes               | Review code for performance issues — algorithmic complexity, batching, caching, memory, concurrency, and more |
-| [cost-review](skills/cost-review/SKILL.md)             | `/ccn:cost-review [files]`  | No                | Estimate monthly cloud costs from infrastructure and app config, with optimisation suggestions |
+| [codex-review](skills/codex-review/SKILL.md)           | `/codex-review`         | No                | Send plans, approaches, or code to OpenAI Codex CLI for an independent second opinion |
+| [db-review](skills/db-review/SKILL.md)                 | `/db-review <files>`    | Yes               | Review database schemas and suggest improvements for indexing, types, constraints, and more |
+| [perf-review](skills/perf-review/SKILL.md)             | `/perf-review <files>`  | Yes               | Review code for performance issues — algorithmic complexity, batching, caching, memory, concurrency, and more |
+| [cost-review](skills/cost-review/SKILL.md)             | `/cost-review [files]`  | No                | Estimate monthly cloud costs from infrastructure and app config, with optimisation suggestions |
 
 ### Hooks
 
@@ -77,74 +77,74 @@ These skills are read-only — they analyse code and report findings without mak
 
 ### Skill examples
 
-**`/ccn:functional`** — convert files to functional style:
+**`/functional`** — convert files to functional style:
 ```
-/ccn:functional @service.ts @handler.ts
-/ccn:functional utils.py, helpers.py
-/ccn:functional @app.go and also convert the files it imports
-/ccn:functional @processor.rb focus only on the data transformation methods
-/ccn:functional @api.ts keep the existing class structure but make methods pure
-```
-
-**`/ccn:object`** — convert files to object-oriented style:
-```
-/ccn:object @service.ts @handler.ts
-/ccn:object utils.py, helpers.py
-/ccn:object @app.go and also convert the files it imports
-/ccn:object @processor.rb focus only on the data transformation methods
-/ccn:object @helpers.ts keep the existing function signatures as public methods
+/functional @service.ts @handler.ts
+/functional utils.py, helpers.py
+/functional @app.go and also convert the files it imports
+/functional @processor.rb focus only on the data transformation methods
+/functional @api.ts keep the existing class structure but make methods pure
 ```
 
-**`/ccn:test-refactor`** — refactor tests for consistency and quality:
+**`/object-oriented`** — convert files to object-oriented style:
 ```
-/ccn:test-refactor @service.test.ts
-/ccn:test-refactor tests/unit/
-/ccn:test-refactor @handler.test.ts compare mocking patterns with tests/unit/auth.test.ts
-/ccn:test-refactor @api.test.py focus on mocking consistency and test isolation
-/ccn:test-refactor @service.test.ts and also check the source file for missing coverage
-```
-
-**`/ccn:test-runner`** — run tests and fix failures:
-```
-/ccn:test-runner
-/ccn:test-runner @service.test.ts
-/ccn:test-runner tests/unit/
-/ccn:test-runner only the tests related to authentication
-/ccn:test-runner fix the source code, not the tests
+/object-oriented@service.ts @handler.ts
+/object-orientedutils.py, helpers.py
+/object-oriented@app.go and also convert the files it imports
+/object-oriented@processor.rb focus only on the data transformation methods
+/object-oriented@helpers.ts keep the existing function signatures as public methods
 ```
 
-**`/ccn:codex-review`** — review plans, code, or both:
+**`/test-refactor`** — refactor tests for consistency and quality:
 ```
-/ccn:codex-review review my current plan
-/ccn:codex-review review the code I just wrote
-/ccn:codex-review review the approach and the implementation together
-```
-
-**`/ccn:db-review`** — review database schemas:
-```
-/ccn:db-review @schema.sql
-/ccn:db-review schema.prisma, migrations/001.sql
-/ccn:db-review @models.py this is a write-heavy OLTP workload on PostgreSQL
-/ccn:db-review @schema.sql focus on indexing and performance only
-/ccn:db-review @schema.rb also check the migration files in db/migrations
+/test-refactor @service.test.ts
+/test-refactor tests/unit/
+/test-refactor @handler.test.ts compare mocking patterns with tests/unit/auth.test.ts
+/test-refactor @api.test.py focus on mocking consistency and test isolation
+/test-refactor @service.test.ts and also check the source file for missing coverage
 ```
 
-**`/ccn:perf-review`** — review code for performance issues:
+**`/test-runner`** — run tests and fix failures:
 ```
-/ccn:perf-review @service.ts @handler.ts
-/ccn:perf-review utils.py, helpers.py
-/ccn:perf-review @app.go and also review the files it imports
-/ccn:perf-review @api.ts focus only on database query performance
-/ccn:perf-review @processor.rb we're seeing high memory usage in production
+/test-runner
+/test-runner @service.test.ts
+/test-runner tests/unit/
+/test-runner only the tests related to authentication
+/test-runner fix the source code, not the tests
 ```
 
-**`/ccn:cost-review`** — estimate monthly cloud costs:
+**`/codex-review`** — review plans, code, or both:
 ```
-/ccn:cost-review
-/ccn:cost-review @main.tf @variables.tf
-/ccn:cost-review assume 10k daily active users on AWS eu-west-1
-/ccn:cost-review @serverless.yml we expect 1M invocations per month
-/ccn:cost-review @docker-compose.yml this will run on ECS Fargate
+/codex-review review my current plan
+/codex-review review the code I just wrote
+/codex-review review the approach and the implementation together
+```
+
+**`/db-review`** — review database schemas:
+```
+/db-review @schema.sql
+/db-review schema.prisma, migrations/001.sql
+/db-review @models.py this is a write-heavy OLTP workload on PostgreSQL
+/db-review @schema.sql focus on indexing and performance only
+/db-review @schema.rb also check the migration files in db/migrations
+```
+
+**`/perf-review`** — review code for performance issues:
+```
+/perf-review @service.ts @handler.ts
+/perf-review utils.py, helpers.py
+/perf-review @app.go and also review the files it imports
+/perf-review @api.ts focus only on database query performance
+/perf-review @processor.rb we're seeing high memory usage in production
+```
+
+**`/cost-review`** — estimate monthly cloud costs:
+```
+/cost-review
+/cost-review @main.tf @variables.tf
+/cost-review assume 10k daily active users on AWS eu-west-1
+/cost-review @serverless.yml we expect 1M invocations per month
+/cost-review @docker-compose.yml this will run on ECS Fargate
 ```
 
 ## License
