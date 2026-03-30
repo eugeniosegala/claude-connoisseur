@@ -68,6 +68,7 @@ These skills are read-only — they analyse code and report findings without mak
 | [db-review](skills/db-review/SKILL.md)       | `/db-review <files>`   | No                | Review database schemas and suggest improvements for indexing, types, constraints, and more                   |
 | [perf-review](skills/perf-review/SKILL.md)   | `/perf-review <files>` | No                | Review code for performance issues — algorithmic complexity, batching, caching, memory, concurrency, and more |
 | [cost-review](skills/cost-review/SKILL.md)   | `/cost-review [files]` | No                | Estimate monthly cloud costs from infrastructure and app config, with optimisation suggestions                |
+| [coverage-review](skills/coverage-review/SKILL.md) | `/coverage-review [files]` | No                | Analyse test coverage gaps and report uncovered code — assessment only, no changes until you decide        |
 
 ### Hooks
 
@@ -145,6 +146,16 @@ These skills are read-only — they analyse code and report findings without mak
 /perf-review @app.go and also review the files it imports
 /perf-review @api.ts focus only on database query performance
 /perf-review @processor.rb we're seeing high memory usage in production
+```
+
+**`/coverage-review`** — analyse test coverage gaps:
+
+```
+/coverage-review
+/coverage-review src/services/
+/coverage-review @auth.ts
+/coverage-review focus on the API handlers
+/coverage-review ignore generated files and vendor/
 ```
 
 **`/cost-review`** — estimate monthly cloud costs:
