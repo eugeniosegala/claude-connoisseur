@@ -44,11 +44,11 @@ Parse the arguments to determine what context to gather and send to Codex.
 
 ## How to proceed
 
-1. **Gather context**: Collect the relevant material to send for review based on what the user asked:
-   - **For plan/approach review**: Include the full plan text or approach description
-   - **For code review**: Include the actual code or diff (`git diff`), what was changed, and why
-   - **For both**: Include the plan AND the code/diff together
-   - Always include enough project context for Codex to understand the domain
+1. **Gather context**: Collect the relevant material to send for review based on what the user asked. **Match the scope of what you send to the scope of the ask** — if the user points at a single function, send that function and its immediate dependencies, not the entire file history or conversation. A quick opinion needs adequate context; a full architecture review needs more.
+   - **For a targeted question** (specific file, function, or snippet): Send only the relevant code and enough surrounding context for Codex to understand it (e.g. types, imports, direct callers). Skip git history, conversation recaps, and unrelated files
+   - **For plan/approach review**: Include the plan text or approach description, plus the key files it affects (entry points, schemas, interfaces) — not the entire codebase it touches
+   - **For code review of recent changes**: Include the diff (`git diff`) and a brief description of intent — not every file in the repo
+   - **For broad reviews** ("review the architecture", "review everything I've done"): Include more context, but summarise where possible rather than dumping raw content
 
 2. **Build the prompt**: Construct a clear prompt for Codex that includes:
    - The context of the project and what the user is trying to achieve
