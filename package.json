@@ -1,6 +1,6 @@
 {
   "name": "claude-connoisseur",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collection of skills, rules, hooks and more for Claude Code, curated with taste for good coding!",
   "keywords": [
     "claude",
