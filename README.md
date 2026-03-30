@@ -49,26 +49,26 @@ To enable auto-updates, open `/plugin` → **Marketplaces** tab → select the m
 
 #### Action skills
 
-These skills modify code when invoked. User-triggered only — Claude will not run them automatically.
+These skills modify code when invoked.
 
-| Skill                                              | Command                    | Description                                                              |
-|----------------------------------------------------|----------------------------|--------------------------------------------------------------------------|
-| [functional](skills/functional/SKILL.md)           | `/functional <files>`      | Convert specified files to functional programming style                  |
-| [object-oriented](skills/object-oriented/SKILL.md) | `/object-oriented <files>` | Convert specified files to object-oriented programming style             |
-| [test-refactor](skills/test-refactor/SKILL.md)     | `/test-refactor <files>`   | Refactor tests for consistency, mocking patterns, isolation, and quality |
-| [test-runner](skills/test-runner/SKILL.md)         | `/test-runner [files]`     | Run tests, fix failures, and re-run until the suite passes               |
+| Skill                                              | Command                    | Can Claude invoke | Description                                                                       |
+|----------------------------------------------------|----------------------------|-------------------|-----------------------------------------------------------------------------------|
+| [functional](skills/functional/SKILL.md)           | `/functional <files>`      | No                | Convert specified files to functional programming style                           |
+| [object-oriented](skills/object-oriented/SKILL.md) | `/object-oriented <files>` | No                | Convert specified files to object-oriented programming style                      |
+| [testify](skills/testify/SKILL.md)                 | `/testify [files]`         | Yes               | Write and improve tests — reuse existing patterns, ensure consistency and quality |
+| [test-runner](skills/test-runner/SKILL.md)         | `/test-runner [files]`     | No                | Run tests, fix failures, and re-run until the suite passes                        |
 
 #### Review skills
 
 These skills are read-only — they analyse code and report findings without making changes.
 
-| Skill                                        | Command                | Can Claude invoke | Description                                                                                                   |
-|----------------------------------------------|------------------------|-------------------|---------------------------------------------------------------------------------------------------------------|
-| [codex-review](skills/codex-review/SKILL.md) | `/codex-review`        | No                | Send plans, approaches, or code to OpenAI Codex CLI for an independent second opinion                         |
-| [db-review](skills/db-review/SKILL.md)       | `/db-review <files>`   | No                | Review database schemas and suggest improvements for indexing, types, constraints, and more                   |
-| [perf-review](skills/perf-review/SKILL.md)   | `/perf-review <files>` | No                | Review code for performance issues — algorithmic complexity, batching, caching, memory, concurrency, and more |
-| [cost-review](skills/cost-review/SKILL.md)   | `/cost-review [files]` | No                | Estimate monthly cloud costs from infrastructure and app config, with optimisation suggestions                |
-| [coverage-review](skills/coverage-review/SKILL.md) | `/coverage-review [files]` | No                | Analyse test coverage gaps and report uncovered code — assessment only, no changes until you decide        |
+| Skill                                              | Command                    | Can Claude invoke | Description                                                                                                   |
+|----------------------------------------------------|----------------------------|-------------------|---------------------------------------------------------------------------------------------------------------|
+| [codex-review](skills/codex-review/SKILL.md)       | `/codex-review`            | No                | Send plans, approaches, or code to OpenAI Codex CLI for an independent second opinion                         |
+| [db-review](skills/db-review/SKILL.md)             | `/db-review <files>`       | No                | Review database schemas and suggest improvements for indexing, types, constraints, and more                   |
+| [perf-review](skills/perf-review/SKILL.md)         | `/perf-review <files>`     | No                | Review code for performance issues — algorithmic complexity, batching, caching, memory, concurrency, and more |
+| [cost-review](skills/cost-review/SKILL.md)         | `/cost-review [files]`     | No                | Estimate monthly cloud costs from infrastructure and app config, with optimisation suggestions                |
+| [coverage-review](skills/coverage-review/SKILL.md) | `/coverage-review [files]` | No                | Analyse test coverage gaps and report uncovered code — assessment only, no changes until you decide           |
 
 ### Hooks
 
@@ -100,14 +100,14 @@ These skills are read-only — they analyse code and report findings without mak
 /object-oriented @helpers.ts keep the existing function signatures as public methods
 ```
 
-**`/test-refactor`** — refactor tests for consistency and quality:
+**`/testify`** — write and improve tests:
 
 ```
-/test-refactor @service.test.ts
-/test-refactor tests/unit/
-/test-refactor @handler.test.ts compare mocking patterns with tests/unit/auth.test.ts
-/test-refactor @api.test.py focus on mocking consistency and test isolation
-/test-refactor @service.test.ts and also check the source file for missing coverage
+/testify @service.test.ts
+/testify @auth.ts write tests for this
+/testify tests/unit/
+/testify @handler.test.ts align mocking patterns with tests/unit/auth.test.ts
+/testify write tests for the functions I just added
 ```
 
 **`/test-runner`** — run tests and fix failures:
