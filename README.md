@@ -34,7 +34,7 @@ To enable auto-updates, open `/plugin` → **Marketplaces** tab → select the m
 - Rules are not distributed via the plugin system. To use the coding-style rule, copy it manually into your project:
   ```sh
   mkdir -p .claude/rules
-  curl -o .claude/rules/coding-style.md https://raw.githubusercontent.com/eugeniosegala/claude-connoisseur/main/rules/coding-style.md
+  curl -o .claude/rules/coding-style.md https://raw.githubusercontent.com/eugeniosegala/claude-connoisseur/refs/heads/main/rules/coding-style.md
   ```
 
 ## What's included
