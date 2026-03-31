@@ -1,9 +1,10 @@
 # Code Style & Modularity Rules
 
 ## Respect Repository Style
-- Before writing or modifying code, read surrounding files to understand the existing conventions (naming, formatting, structure, comments, indentation).
+- Before writing or modifying code — including tests — read surrounding files to understand the existing conventions (naming, formatting, structure, comments, indentation).
 - Match the style of the repository by default. Only introduce new patterns, naming conventions, or structural choices when explicitly requested or when the feature genuinely requires it.
 - If the repo uses specific file naming schemes (e.g. numbered prefixes, grouped by concern), follow the same scheme.
+- For tests specifically, follow the existing test structure, assertion style, naming patterns, and strategies (e.g. mocking, stubbing, fixtures, test data setup) rather than introducing new ones.
 
 ## Prefer Modern Syntax
 - Use the latest language features and syntax unless there is a genuine reason not to (e.g. runtime constraints, compatibility requirements).
