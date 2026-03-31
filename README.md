@@ -57,6 +57,8 @@ These skills modify code when invoked.
 | [object-oriented](skills/object-oriented/SKILL.md) | `/object-oriented <files>` | No                | Convert specified files to object-oriented programming style                      |
 | [testify](skills/testify/SKILL.md)                 | `/testify [files]`         | Yes               | Write and improve tests — reuse existing patterns, ensure consistency and quality |
 | [test-runner](skills/test-runner/SKILL.md)         | `/test-runner [files]`     | No                | Run tests, fix failures, and re-run until the suite passes                        |
+| [learnify](skills/learnify/SKILL.md)               | `/learnify <files>`        | No                | Isolate a function or code block into a self-contained, runnable script for study |
+| [proofread](skills/proofread/SKILL.md)             | `/proofread <files>`       | No                | Fix grammar and improve writing while preserving the author's original voice      |
 
 #### Review skills
 
@@ -118,6 +120,24 @@ These skills are read-only — they analyse code and report findings without mak
 /test-runner tests/unit/
 /test-runner only the tests related to authentication
 /test-runner fix the source code, not the tests
+```
+
+**`/learnify`** — isolate code into a runnable script for study:
+
+```
+/learnify @utils.ts the calculateTax function
+/learnify @parser.py the tokenize and parse functions
+/learnify @api.go the retry logic, include comments explaining the backoff strategy
+/learnify @auth.rb the password hashing flow, show edge cases
+```
+
+**`/proofread`** — fix grammar while preserving your voice:
+
+```
+/proofread @README.md
+/proofread docs/guide.md, docs/setup.md
+/proofread @SKILL.md focus on the description sections only
+/proofread @blog-post.md keep all code examples exactly as they are
 ```
 
 **`/codex-review`** — review plans, code, or both:
