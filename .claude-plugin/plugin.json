@@ -1,7 +1,7 @@
 {
   "name": "claude-connoisseur",
   "description": "A collection of skills, rules, hooks and more for Claude Code, curated with taste for good coding!",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "author": {
     "name": "Eugenio Segala"
   },
