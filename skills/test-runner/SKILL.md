@@ -132,5 +132,4 @@ Please specify how to run tests (e.g. `/test-runner npm test` or `/test-runner p
 - **Prefer fixing source code over weakening tests** — unless the test expectation is clearly wrong or the user says otherwise, assume the test is correct and fix the implementation
 - **Search for existing patterns before adding mocks** — use Grep to find how other tests mock the same dependency. Reuse the established approach
 - **Timeout handling** — if tests exceed the timeout, report which tests completed and that the run was interrupted
-- **Sensitive output** — test output may contain credentials, tokens, or connection strings in error messages. Do not repeat these in the summary; replace with `[redacted]`
 - **3-round limit** — stop after 3 fix-and-rerun cycles. Report remaining failures without further attempts

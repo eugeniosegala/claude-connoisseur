@@ -8,16 +8,9 @@ disable-model-invocation: false
 
 # Testify
 
-Write new tests or improve existing ones, always reusing the project's established testing patterns, mocks, and fixtures.
-
-This skill applies both when invoked directly (`/testify`) and when Claude is writing or modifying tests as part of other work.
+Write new tests or improve existing ones, always reusing the project's established testing patterns, style of writing, mocks, and fixtures.
 
 Files and instructions: $ARGUMENTS
-
-## When this skill applies
-
-- **User-invoked**: the user explicitly calls `/testify` with files or instructions
-- **Model-invoked**: Claude is writing new tests, modifying existing tests, or adding test coverage as part of any task. Before writing test code, apply the principles below
 
 ## Core principles
 
@@ -85,7 +78,7 @@ When no arguments are provided, this skill is being invoked by the model — app
 ## How to proceed
 
 1. **Understand the context**: read the specified files (test files, source files, or both) to understand the testing framework, patterns, and structure
-2. **Search for existing patterns**: use `Grep` to find how other tests in the project mock the same dependencies, set up data, and structure assertions. This step is critical — never write mocks or setup without first understanding the project's conventions
+2. **Search for existing patterns**: find how other tests in the project mock the same dependencies, set up data, and structure assertions. This step is critical — never write mocks or setup without first understanding the project's conventions
 3. **If the user included additional instructions** (e.g. "align with other tests"), follow them to identify further files to read
 4. **Write or improve tests**:
    - **New tests**: follow the project's existing test structure, naming conventions, and mocking patterns. Place test files where the project expects them

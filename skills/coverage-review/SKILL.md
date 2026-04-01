@@ -152,6 +152,5 @@ Minor gaps (cosmetic):
 - **Do not write tests or modify code** — this skill produces an assessment only. Wait for the user to decide what to cover and how
 - **Never run tests in watch mode** — it requires interactive input
 - **Timeout handling** — if a coverage collection exceeds the timeout, report what is completed and that the run was interrupted
-- **Sensitive output** — coverage output may contain file paths, connection strings, or credentials in error messages. Do not repeat these in the summary; replace with `[redacted]`
 - **Respect existing configuration** — use the project's existing coverage config (thresholds, exclusions, reporters) rather than overriding with custom flags
 - **Large projects** — if the project has hundreds of source files, focus the detailed analysis on the user-specified scope or the top 15 lowest-coverage files to keep the report actionable
