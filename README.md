@@ -1,7 +1,7 @@
 # Claude Connoisseur
 
 <p align="center">
-  <img src="assets/claude-connoisseur.png" alt="Claude Connoisseur" width="300" />
+  <img src="assets/claude-connoisseur-v2.png" alt="Claude Connoisseur" width="300" />
 </p>
 
 A collection of skills, rules, hooks and more for Claude Code, curated with taste for good coding!
