@@ -8,11 +8,15 @@
 #   Python (.py)           — mypy (requires mypy being installed)
 #   Go (.go)               — go vet
 #   Rust (.rs)             — cargo check (requires Cargo.toml)
-#   Java (.java)           — javac -d /dev/null (basic syntax/type check)
+#   Java (.java)           — javac via a temporary output directory
+
+if [[ -t 0 ]]; then
+  exit 0
+fi
 
 input=$(cat)
 
-file_path=$(python3 -c "import sys,json; print(json.load(sys.stdin).get('tool_input',{}).get('file_path',''))" <<< "$input" 2>/dev/null)
+file_path=$(python3 -c "import sys,json; print(json.load(sys.stdin).get('tool_input',{}).get('file_path',''))" <<< "$input" 2>/dev/null || true)
 
 if [[ -z "$file_path" || ! -f "$file_path" ]]; then
   exit 0
@@ -55,7 +59,9 @@ case "$ext" in
     ;;
   java)
     command -v javac &>/dev/null || exit 0
-    javac -d /dev/null "$file_path" 2>&1
+    output_dir=$(mktemp -d "${TMPDIR:-/tmp}/type-check.XXXXXX")
+    trap 'rm -rf "$output_dir"' EXIT
+    javac -d "$output_dir" "$file_path" 2>&1
     ;;
 esac
 

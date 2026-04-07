@@ -13,9 +13,13 @@
 #   Rust (.rs)                          — rustfmt
 #   Shell (.sh/bash/zsh)                — shfmt
 
+if [[ -t 0 ]]; then
+  exit 0
+fi
+
 input=$(cat)
 
-file_path=$(python3 -c "import sys,json; print(json.load(sys.stdin).get('tool_input',{}).get('file_path',''))" <<< "$input" 2>/dev/null)
+file_path=$(python3 -c "import sys,json; print(json.load(sys.stdin).get('tool_input',{}).get('file_path',''))" <<< "$input" 2>/dev/null || true)
 
 if [[ -z "$file_path" || ! -f "$file_path" ]]; then
   exit 0
