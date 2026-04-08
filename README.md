@@ -80,6 +80,14 @@ These skills are read-only — they analyse code and report findings without mak
 | [type-check](hooks/type-check.sh)     | After `Write` or `Edit` | Type-checks edited files — supports TypeScript (tsc), Python (mypy), Go (go vet), Rust (cargo check), and Java (javac). Silently skipped if no type checker is installed           |
 | [commit-guard](hooks/commit-guard.sh) | Before `Bash`           | Intercepts git commit commands and blocks if staged files contain secrets (.env, API keys, tokens, private keys) or sensitive file patterns                                        |
 
+## Adjacent Tools
+
+Tools that pair well with Claude Connoisseur:
+
+| Tool                                               | Description                                                                                                                                                                         |
+|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [OpenSpec](https://github.com/Fission-AI/OpenSpec) | A lightweight spec framework that aligns developers and AI assistants on requirements before implementation — proposals, specs, design docs, and task checklists via slash commands |
+
 ### Skill examples
 
 **`/functional`** — convert files to functional style:
