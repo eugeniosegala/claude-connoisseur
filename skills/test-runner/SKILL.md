@@ -3,6 +3,7 @@ name: test-runner
 description: Run tests, fix failures, and re-run until the suite passes.
 argument-hint: "[files] [instructions]"
 user-invocable: true
+context: fork
 disable-model-invocation: true
 ---
 

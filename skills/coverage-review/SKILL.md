@@ -3,6 +3,7 @@ name: coverage-review
 description: Analyse test coverage gaps and report uncovered code before making changes.
 argument-hint: "[files] [instructions]"
 user-invocable: true
+context: fork
 disable-model-invocation: true
 ---
 
