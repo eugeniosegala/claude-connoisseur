@@ -51,14 +51,15 @@ To enable auto-updates, open `/plugin` → **Marketplaces** tab → select the m
 
 These skills modify code when invoked.
 
-| Skill                                              | Command                    | Can Claude invoke | Description                                                                       |
-|----------------------------------------------------|----------------------------|-------------------|-----------------------------------------------------------------------------------|
-| [functional](skills/functional/SKILL.md)           | `/functional <files>`      | No                | Convert specified files to functional programming style                           |
-| [object-oriented](skills/object-oriented/SKILL.md) | `/object-oriented <files>` | No                | Convert specified files to object-oriented programming style                      |
-| [testify](skills/testify/SKILL.md)                 | `/testify [files]`         | Yes               | Write and improve tests — reuse existing patterns, ensure consistency and quality |
-| [test-runner](skills/test-runner/SKILL.md)         | `/test-runner [files]`     | No                | Run tests, fix failures, and re-run until the suite passes                        |
-| [learnify](skills/learnify/SKILL.md)               | `/learnify <files>`        | No                | Isolate a function or code block into a self-contained, runnable script for study |
-| [proofread](skills/proofread/SKILL.md)             | `/proofread <files>`       | No                | Fix grammar and improve writing while preserving the author's original voice      |
+| Skill                                              | Command                    | Can Claude invoke | Description                                                                                   |
+|----------------------------------------------------|----------------------------|-------------------|-----------------------------------------------------------------------------------------------|
+| [functional](skills/functional/SKILL.md)           | `/functional <files>`      | No                | Convert specified files to functional programming style                                       |
+| [object-oriented](skills/object-oriented/SKILL.md) | `/object-oriented <files>` | No                | Convert specified files to object-oriented programming style                                  |
+| [testify](skills/testify/SKILL.md)                 | `/testify [files]`         | Yes               | Write and improve tests — reuse existing patterns, ensure consistency and quality             |
+| [test-runner](skills/test-runner/SKILL.md)         | `/test-runner [files]`     | No                | Run tests, fix failures, and re-run until the suite passes                                    |
+| [learnify](skills/learnify/SKILL.md)               | `/learnify <files>`        | No                | Isolate a function or code block into a self-contained, runnable script for study             |
+| [proofread](skills/proofread/SKILL.md)             | `/proofread <files>`       | No                | Fix grammar and improve writing while preserving the author's original voice                  |
+| [mermaid](skills/mermaid/SKILL.md)           | `/mermaid <files>`      | No                | Generate Mermaid diagrams in the README to visualise architecture, flows, or relationships    |
 
 #### Review skills
 
@@ -146,6 +147,16 @@ Tools that pair well with Claude Connoisseur:
 /proofread docs/guide.md, docs/setup.md
 /proofread @SKILL.md focus on the description sections only
 /proofread @blog-post.md keep all code examples exactly as they are
+```
+
+**`/mermaid`** — generate Mermaid diagrams for the README:
+
+```
+/mermaid @service.ts @handler.ts the request flow
+/mermaid src/models/ the entity relationships as an ER diagram
+/mermaid @auth.ts how authentication works end to end
+/mermaid @router.go @middleware.go as a sequence diagram
+/mermaid src/ high-level architecture, put it in docs/architecture.md
 ```
 
 **`/codex-review`** — review plans, code, or both:

@@ -38,3 +38,8 @@
 - If tests already exist for the affected code, update them to reflect the changes.
 - If no tests exist, create them.
 - Run the relevant test suite to verify that all checks pass before considering the work complete.
+
+## Documentation
+- When changes affect usage, configuration, public API, installation steps, or any other user-facing behaviour, update the relevant documentation (README, guides, changelogs, inline doc comments, etc.) to reflect those changes.
+- Do not update documentation for purely internal refactors, code style tweaks, or changes that have no impact on how the project is used or set up.
+- Match the existing tone, structure, and formatting of the documentation being updated.
