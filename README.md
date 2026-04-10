@@ -51,15 +51,15 @@ To enable auto-updates, open `/plugin` → **Marketplaces** tab → select the m
 
 These skills modify code when invoked.
 
-| Skill                                              | Command                    | Can Claude invoke | Description                                                                                   |
-|----------------------------------------------------|----------------------------|-------------------|-----------------------------------------------------------------------------------------------|
-| [functional](skills/functional/SKILL.md)           | `/functional <files>`      | No                | Convert specified files to functional programming style                                       |
-| [object-oriented](skills/object-oriented/SKILL.md) | `/object-oriented <files>` | No                | Convert specified files to object-oriented programming style                                  |
-| [testify](skills/testify/SKILL.md)                 | `/testify [files]`         | Yes               | Write and improve tests — reuse existing patterns, ensure consistency and quality             |
-| [test-runner](skills/test-runner/SKILL.md)         | `/test-runner [files]`     | No                | Run tests, fix failures, and re-run until the suite passes                                    |
-| [learnify](skills/learnify/SKILL.md)               | `/learnify <files>`        | No                | Isolate a function or code block into a self-contained, runnable script for study             |
-| [proofread](skills/proofread/SKILL.md)             | `/proofread <files>`       | No                | Fix grammar and improve writing while preserving the author's original voice                  |
-| [mermaid](skills/mermaid/SKILL.md)           | `/mermaid <files>`      | No                | Generate Mermaid diagrams in the README to visualise architecture, flows, or relationships    |
+| Skill                                              | Command                    | Can Claude invoke | Description                                                                                |
+|----------------------------------------------------|----------------------------|-------------------|--------------------------------------------------------------------------------------------|
+| [functional](skills/functional/SKILL.md)           | `/functional <files>`      | No                | Convert specified files to functional programming style                                    |
+| [object-oriented](skills/object-oriented/SKILL.md) | `/object-oriented <files>` | No                | Convert specified files to object-oriented programming style                               |
+| [testify](skills/testify/SKILL.md)                 | `/testify [files]`         | Yes               | Write and improve tests — reuse existing patterns, ensure consistency and quality          |
+| [test-runner](skills/test-runner/SKILL.md)         | `/test-runner [files]`     | No                | Run tests, fix failures, and re-run until the suite passes                                 |
+| [learnify](skills/learnify/SKILL.md)               | `/learnify <files>`        | No                | Isolate a function or code block into a self-contained, runnable script for study          |
+| [proofread](skills/proofread/SKILL.md)             | `/proofread <files>`       | No                | Fix grammar and improve writing while preserving the author's original voice               |
+| [mermaid](skills/mermaid/SKILL.md)                 | `/mermaid <files>`         | No                | Generate Mermaid diagrams in the README to visualise architecture, flows, or relationships |
 
 #### Review skills
 
@@ -72,6 +72,7 @@ These skills are read-only — they analyse code and report findings without mak
 | [perf-review](skills/perf-review/SKILL.md)         | `/perf-review <files>`     | No                | Review code for performance issues — algorithmic complexity, batching, caching, memory, concurrency, and more |
 | [cost-review](skills/cost-review/SKILL.md)         | `/cost-review [files]`     | No                | Estimate monthly cloud costs from infrastructure and app config, with optimisation suggestions                |
 | [coverage-review](skills/coverage-review/SKILL.md) | `/coverage-review [files]` | No                | Analyse test coverage gaps and report uncovered code — assessment only, no changes until you decide           |
+| [roast-review](skills/roast-review/SKILL.md)       | `/roast-review <files>`    | No                | Ruthlessly tear apart code design — naming, abstractions, coupling, complexity, and everything else           |
 
 ### Hooks
 
@@ -205,6 +206,16 @@ Tools that pair well with Claude Connoisseur:
 /cost-review assume 10k daily active users on AWS eu-west-1
 /cost-review @serverless.yml we expect 1M invocations per month
 /cost-review @docker-compose.yml this will run on ECS Fargate
+```
+
+**`/roast-review`** — ruthlessly tear apart code design:
+
+```
+/roast-review @service.ts @handler.ts
+/roast-review src/models/
+/roast-review @api.ts focus on naming and abstractions
+/roast-review @app.go and also roast the files it imports
+/roast-review @auth.ts this is going into code review tomorrow, prepare me for the worst
 ```
 
 ## License
