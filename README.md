@@ -18,6 +18,8 @@ Add the marketplace and install the plugin from within Claude Code:
 /plugin install claude-connoisseur@eugeniosegala-claude-connoisseur
 ```
 
+To also install OpenSpec, see the [OpenSpec installation guide](https://github.com/Fission-AI/OpenSpec#installation).
+
 ### Updating
 
 Third-party plugins do not auto-update by default. To get the latest version:
@@ -113,7 +115,7 @@ Best for contained work: a bug fix, a single-file refactor, or a quick review be
 ### Rules
 
 | Rule                                  | Description                                                                                                             |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | [coding-style](rules/coding-style.md) | Enforces consistent code style, modern syntax, meaningful comments, modularity, and test discipline across any language |
 
 ### Skills
@@ -123,7 +125,7 @@ Best for contained work: a bug fix, a single-file refactor, or a quick review be
 These skills modify code when invoked.
 
 | Skill                                              | Command                    | Can Claude invoke | Description                                                                                |
-|----------------------------------------------------|----------------------------|-------------------|--------------------------------------------------------------------------------------------|
+| -------------------------------------------------- | -------------------------- | ----------------- | ------------------------------------------------------------------------------------------ |
 | [functional](skills/functional/SKILL.md)           | `/functional <files>`      | No                | Convert specified files to functional programming style                                    |
 | [object-oriented](skills/object-oriented/SKILL.md) | `/object-oriented <files>` | No                | Convert specified files to object-oriented programming style                               |
 | [testify](skills/testify/SKILL.md)                 | `/testify [files]`         | Yes               | Write and improve tests — reuse existing patterns, ensure consistency and quality          |
@@ -137,7 +139,7 @@ These skills modify code when invoked.
 These skills are read-only — they analyse code and report findings without making changes.
 
 | Skill                                              | Command                    | Can Claude invoke | Description                                                                                                   |
-|----------------------------------------------------|----------------------------|-------------------|---------------------------------------------------------------------------------------------------------------|
+| -------------------------------------------------- | -------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------- |
 | [codex-review](skills/codex-review/SKILL.md)       | `/codex-review`            | No                | Send plans, approaches, or code to OpenAI Codex CLI for an independent second opinion                         |
 | [db-review](skills/db-review/SKILL.md)             | `/db-review <files>`       | No                | Review database schemas and suggest improvements for indexing, types, constraints, and more                   |
 | [perf-review](skills/perf-review/SKILL.md)         | `/perf-review <files>`     | No                | Review code for performance issues — algorithmic complexity, batching, caching, memory, concurrency, and more |
@@ -148,7 +150,7 @@ These skills are read-only — they analyse code and report findings without mak
 ### Hooks
 
 | Hook                                  | Trigger                 | Description                                                                                                                                                                        |
-|---------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [auto-format](hooks/auto-format.sh)   | After `Write` or `Edit` | Auto-formats files using the appropriate formatter for the language — supports Python (ruff), JS/TS/CSS/HTML/JSON/YAML/Markdown (prettier), Terraform, Go, Rust, and Shell (shfmt) |
 | [type-check](hooks/type-check.sh)     | After `Write` or `Edit` | Type-checks edited files — supports TypeScript (tsc), Python (mypy), Go (go vet), Rust (cargo check), and Java (javac). Silently skipped if no type checker is installed           |
 | [commit-guard](hooks/commit-guard.sh) | Before `Bash`           | Intercepts git commit commands and blocks if staged files contain secrets (.env, API keys, tokens, private keys) or sensitive file patterns                                        |
@@ -158,7 +160,7 @@ These skills are read-only — they analyse code and report findings without mak
 Tools that pair well with Claude Connoisseur:
 
 | Tool                                               | Description                                                                                                                                                                         |
-|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [OpenSpec](https://github.com/Fission-AI/OpenSpec) | A lightweight spec framework that aligns developers and AI assistants on requirements before implementation — proposals, specs, design docs, and task checklists via slash commands |
 
 ### Skill usage examples
