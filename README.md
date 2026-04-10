@@ -4,7 +4,10 @@
   <img src="assets/claude-connoisseur-v2.png" alt="Claude Connoisseur" width="300" />
 </p>
 
-A collection of skills, rules, hooks and more for Claude Code, curated with taste for good coding!
+A collection of skills, rules, hooks, and more for Claude Code, curated with a taste for good coding!
+
+> **Tip:** This plugin works even better when paired with [OpenSpec](https://github.com/Fission-AI/OpenSpec) — a
+> lightweight spec framework that aligns developers and AI assistants on requirements before implementation.
 
 ## Installation
 
@@ -36,6 +39,74 @@ To enable auto-updates, open `/plugin` → **Marketplaces** tab → select the m
   mkdir -p .claude/rules
   curl -o .claude/rules/coding-style.md https://raw.githubusercontent.com/eugeniosegala/claude-connoisseur/refs/heads/main/rules/coding-style.md
   ```
+
+## Example workflows
+
+### With OpenSpec — building a feature end to end
+
+Best for non-trivial work: new features, multi-file changes, or anything that benefits from upfront requirements.
+
+1. **Spec the feature** — OpenSpec creates a proposal, specs, design, and task checklist:
+   ```
+   /opsx:propose Add Stripe billing for subscription management
+   ```
+2. **Review the plan** — read the generated artifacts, refine if needed, then optionally get a second opinion:
+   ```
+   /codex-review review the OpenSpec proposal and technical design
+   ```
+3. **Implement** — OpenSpec works through the task checklist and writes code (hooks run automatically):
+   ```
+   /opsx:apply
+   ```
+4. **Quality gates** — run targeted reviews on the new code:
+   ```
+   /db-review @billing_schema.sql focus on constraints and cascading deletes
+   /perf-review @payment_handler.ts database query patterns
+   /cost-review @main.tf we expect 100k monthly transactions
+   ```
+5. **Test** (if not already covered by the plan) — write tests, run them, check coverage:
+   ```
+   /testify @payment_handler.ts
+   /test-runner src/billing/
+   /coverage-review src/billing/
+   ```
+6. **Iterate** — if the reviews or tests surfaced issues, fix the code and sync the spec:
+   ```
+   fix the N+1 query flagged by perf-review
+   /opsx:sync
+   ```
+   Repeat steps 4–6 until you're happy with the result.
+7. **Verify** — validate the implementation matches the spec:
+   ```
+   /opsx:verify
+   ```
+8. **Document** (if not already covered by the plan) — generate diagrams and proofread docs:
+   ```
+   /mermaid @billing_service.ts the payment flow
+   /proofread @docs/billing.md
+   ```
+9. **Archive** — store the spec for future reference:
+   ```
+   /opsx:archive
+   ```
+
+### Without OpenSpec — quick targeted tasks
+
+Best for contained work: a bug fix, a single-file refactor, or a quick review before a PR.
+
+1. **Describe the task** in chat:
+   ```
+   /functional @order-service.ts convert to pure functions and immutable data
+   ```
+2. **Claude refactors the code** — hooks handle formatting and type-checking automatically.
+3. **Verify** — run the relevant tests:
+   ```
+   /test-runner src/orders/
+   ```
+4. **Optional review** — catch anything you might have missed:
+   ```
+   /perf-review @order-service.ts check the refactor didn't introduce performance regressions
+   ```
 
 ## What's included
 
@@ -90,7 +161,7 @@ Tools that pair well with Claude Connoisseur:
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [OpenSpec](https://github.com/Fission-AI/OpenSpec) | A lightweight spec framework that aligns developers and AI assistants on requirements before implementation — proposals, specs, design docs, and task checklists via slash commands |
 
-### Skill examples
+### Skill usage examples
 
 **`/functional`** — convert files to functional style:
 
