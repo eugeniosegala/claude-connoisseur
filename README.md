@@ -4,7 +4,7 @@
   <img src="assets/claude-connoisseur-v2.png" alt="Claude Connoisseur" width="300" />
 </p>
 
-A collection of skills, rules, hooks, and more for Claude Code, curated with a taste for good coding!
+A collection of skills, rules, hooks, and more for Claude Code — pairs with spec-driven development for a complete AI-assisted workflow, curated with a taste for good coding!
 
 > **Tip:** This plugin works even better when paired with [OpenSpec](https://github.com/Fission-AI/OpenSpec) — a
 > lightweight spec framework that aligns developers and AI assistants on requirements before implementation.
@@ -18,7 +18,7 @@ Add the marketplace and install the plugin from within Claude Code:
 /plugin install claude-connoisseur@eugeniosegala-claude-connoisseur
 ```
 
-To also install OpenSpec, see the [OpenSpec installation guide](https://github.com/Fission-AI/OpenSpec#installation).
+To also install OpenSpec, see the [OpenSpec installation guide](https://github.com/Fission-AI/OpenSpec#installation). To enable extended commands like `/opsx:verify` or `/opsx:sync`, run `openspec config profile` and select the expanded workflow.
 
 ### Updating
 
@@ -52,7 +52,7 @@ Best for non-trivial work: new features, multi-file changes, or anything that be
    ```
    /opsx:propose Add Stripe billing for subscription management
    ```
-2. **Review the plan** — read the generated artifacts, refine if needed, then optionally get a second opinion:
+2. **Review the plan** (optional) — read the generated artefacts, refine if needed, then get a second opinion:
    ```
    /codex-review review the OpenSpec proposal and technical design
    ```
@@ -60,34 +60,25 @@ Best for non-trivial work: new features, multi-file changes, or anything that be
    ```
    /opsx:apply
    ```
-4. **Quality gates** — run targeted reviews on the new code:
+4. **Quality gates** (optional) — change, review and test if needed:
+
    ```
-   /db-review @billing_schema.sql focus on constraints and cascading deletes
+   # change
+   /object-oriented @payment_handler.ts
+
+   # review
    /perf-review @payment_handler.ts database query patterns
-   /cost-review @main.tf we expect 100k monthly transactions
-   ```
-5. **Test** (if not already covered by the plan) — write tests, run them, check coverage:
-   ```
+
+   # test
    /testify @payment_handler.ts
-   /test-runner src/billing/
-   /coverage-review src/billing/
    ```
-6. **Iterate** — if the reviews or tests surfaced issues, fix the code and sync the spec:
-   ```
-   fix the N+1 query flagged by perf-review
-   /opsx:sync
-   ```
-   Repeat steps 4–6 until you're happy with the result.
-7. **Verify** — validate the implementation matches the spec:
+
+5. **Iterate** — if the reviews or tests surfaced issues, fix the code and re-verify against the spec:
    ```
    /opsx:verify
    ```
-8. **Document** (if not already covered by the plan) — generate diagrams and proofread docs:
-   ```
-   /mermaid @billing_service.ts the payment flow
-   /proofread @docs/billing.md
-   ```
-9. **Archive** — store the spec for future reference:
+   Repeat steps 4–5 until the code and the spec are aligned.
+6. **Archive** — store the spec for future reference:
    ```
    /opsx:archive
    ```
