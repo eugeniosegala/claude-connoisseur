@@ -47,6 +47,26 @@ To enable auto-updates, open `/plugin` → **Marketplaces** tab → select the m
 
 ## Example workflows
 
+```mermaid
+flowchart TD
+    Start(["🚀 Start task"]) --> Decision{"Non-trivial?\nNew feature,\nmulti-file change"}
+    Decision -- Yes --> Propose["Spec the feature\n/opsx:propose"]
+    Decision -- No --> Describe["Describe the task to the agent in the chat or use Skills\n/functional, /object-oriented, etc..."]
+    Propose --> Review["Review the plan manually and with other agents (optional)\n/codex-review"]
+    Review --> Apply["Implement with\n/opsx:apply\nhooks run automatically"]
+    Apply --> QualityGates["Quality gates (optional)\n/object-oriented, /perf-review, etc..."]
+    QualityGates --> Issues{"Issues\nfound?"}
+    Issues -- Yes --> Fix["Fix code or\nrun other Skills to fix the problem"]
+    Fix --> Issues
+    Issues -- No --> Verify["Re-verify against spec\n/opsx:verify"]
+    Verify --> Archive["Archive spec\n/opsx:archive"]
+    Archive --> Done(["✅ Done"])
+    Describe --> Hooks["Claude refactors code\nhooks handle formatting + type-checking"]
+    Hooks --> TestRunner["Verify tests\n/test-runner"]
+    TestRunner --> OptReview["Perf review (optional)\n/perf-review"]
+    OptReview --> Done
+```
+
 ### With OpenSpec — building a feature end to end
 
 Best for non-trivial work: new features, multi-file changes, or anything that benefits from upfront requirements.
@@ -63,7 +83,7 @@ Best for non-trivial work: new features, multi-file changes, or anything that be
    ```
    /opsx:apply
    ```
-4. **Quality gates** (optional) — change, review and test if needed:
+4. **Quality gates** — change, review, and test if needed:
 
    ```
    # change
