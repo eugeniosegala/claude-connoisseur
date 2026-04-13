@@ -76,7 +76,7 @@ Best for non-trivial work: new features, multi-file changes, or anything that be
    /testify @payment_handler.ts
    ```
 
-5. **Iterate** — if the reviews or tests surfaced issues, fix the code and re-verify against the spec:
+5. **Iterate** — if the quality gate surface issues; fix the code, run other skills and re-verify against the spec:
    ```
    /opsx:verify
    ```
