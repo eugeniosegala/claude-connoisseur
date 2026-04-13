@@ -4,8 +4,7 @@
   <img src="assets/claude-connoisseur-v2.png" alt="Claude Connoisseur" width="300" />
 </p>
 
-A collection of skills, rules, hooks, and more for Claude Code — pairs with spec-driven development for a complete
-AI-assisted workflow, curated with a taste for good coding!
+A Claude Code plugin that brings together skills, rules, and hooks with OpenSpec's spec-driven workflow, curated with a taste for good coding.
 
 > **Tip:** This plugin works even better when paired with [OpenSpec](https://github.com/Fission-AI/OpenSpec) — a
 > lightweight spec framework that aligns developers and AI assistants on requirements before implementation.
