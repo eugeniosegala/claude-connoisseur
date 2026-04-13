@@ -1,7 +1,7 @@
 # Claude Connoisseur
 
 <p align="center">
-  <img src="assets/claude-connoisseur-v2.png" alt="Claude Connoisseur" width="300" />
+  <img src="assets/claude-connoisseur-v3.png" alt="Claude Connoisseur" width="300" />
 </p>
 
 A Claude Code plugin that brings together skills, rules, and hooks with OpenSpec's spec-driven workflow, curated with a taste for good coding.
