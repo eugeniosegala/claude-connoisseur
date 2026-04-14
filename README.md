@@ -4,7 +4,8 @@
   <img src="assets/claude-connoisseur-v3.png" alt="Claude Connoisseur" width="300" />
 </p>
 
-A Claude Code plugin that brings together skills, rules, and hooks with OpenSpec's spec-driven workflow, curated with a taste for good coding.
+A Claude Code plugin that brings together skills, rules, and hooks with OpenSpec's spec-driven workflow, curated with a
+taste for good coding.
 
 > **Tip:** This plugin works even better when paired with [OpenSpec](https://github.com/Fission-AI/OpenSpec) — a
 > lightweight spec framework that aligns developers and AI assistants on requirements before implementation.
@@ -175,6 +176,7 @@ Tools that pair well with Claude Connoisseur:
 | Tool                                               | Description                                                                                                                                                                         |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [OpenSpec](https://github.com/Fission-AI/OpenSpec) | A lightweight spec framework that aligns developers and AI assistants on requirements before implementation — proposals, specs, design docs, and task checklists via slash commands |
+| [Warp](https://www.warp.dev)                       | A modern, Rust-based terminal with AI integration, block-based output, and collaborative features — the preferred terminal for this workflow                                        |
 
 ### Skill usage examples
 
