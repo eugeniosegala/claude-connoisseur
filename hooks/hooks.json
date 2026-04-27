@@ -6,12 +6,12 @@
         "hooks": [
           {
             "type": "command",
-            "command": "hooks/auto-format.sh",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/auto-format.sh",
             "statusMessage": "Formatting..."
           },
           {
             "type": "command",
-            "command": "hooks/type-check.sh",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/type-check.sh",
             "statusMessage": "Type-checking..."
           }
         ]
@@ -23,7 +23,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "hooks/commit-guard.sh",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/commit-guard.sh",
             "statusMessage": "Checking for secrets..."
           }
         ]
